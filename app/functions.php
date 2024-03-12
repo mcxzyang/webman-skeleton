@@ -61,7 +61,7 @@ function apiSuccess(array $data = [])
     return $res;
 }
 
-function apiError(int $code, string $msg, array $data = [], array $trace = [])
+function apiError(string $msg, int $code = 400, array $data = [], array $trace = [])
 {
     $res = [
         'code' => $code,
