@@ -1,6 +1,6 @@
 <?php
 return [
-    'enable' => env('APP_DEBUG'),
+    'enable' => true,
     'exception' => [
         // 是否记录异常到日志
         'enable' => true,
