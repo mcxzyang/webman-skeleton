@@ -21,5 +21,7 @@ Route::get('/test', [IndexController::class, 'index']);
 Route::get('/order', [OrderController::class, 'index']);
 
 
-
+Route::fallback(function(){
+    return json(['code' => 404, 'msg' => '404 not found']);
+});
 
