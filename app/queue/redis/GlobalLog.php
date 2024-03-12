@@ -36,7 +36,7 @@ class GlobalLog implements Consumer
                 'referer' => $data['referer'] ?? '',
                 'user_agent' => $data['user_agent'] ?? '',
                 'query' => $query ? json_encode($query, JSON_UNESCAPED_UNICODE) : '',
-                'errcode' => $data['errcode'] ?? '',
+                'status_code' => $data['status_code'] ?? '',
                 'response' => $data['response'] ?? '',
                 'exception' => $data['exception'] ?? '',
                 'exec_time' => $data['exec_time'] ?? '',
@@ -67,7 +67,7 @@ class GlobalLog implements Consumer
                 $table->text('referer')->nullable(true)->default(null)->comment('来源页');
                 $table->text('user_agent')->nullable(true)->default(null)->comment('user_agent');
                 $table->text('query')->nullable(true)->default(null)->comment('请求参数');
-                $table->string('errcode', 10)->nullable(true)->default(null)->comment('响应错误码');
+                $table->string('status_code', 10)->nullable(true)->default(null)->comment('响应错误码');
                 $table->mediumText('response')->nullable(true)->default(null)->comment('响应结果');
                 $table->text('exception')->nullable(true)->default(null)->comment('异常信息');
                 $table->text('exec_time')->nullable(true)->default(null)->comment('执行时间，单位毫秒');

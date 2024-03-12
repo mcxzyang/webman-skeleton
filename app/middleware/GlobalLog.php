@@ -53,7 +53,7 @@ class GlobalLog implements MiddlewareInterface
             }
         }
 
-        $data['errcode'] = $response->getStatusCode();
+        $data['status_code'] = $response->getStatusCode();
         $data['response'] = $res ? json_encode($res, JSON_UNESCAPED_UNICODE) : $response->rawBody();
         $end = microtime(true);
         $exec_time = round(($end - $start) * 1000, 2);
@@ -65,26 +65,5 @@ class GlobalLog implements MiddlewareInterface
             return json($res);
         }
         return $response;
-    }
-
-    private function getIp(Request $request)
-    {
-        $forward_ip = $request->header('X-Forwarded-For');
-        $ip1 = $request->header('x-real-ip');
-        $ip2 = $request->header('remote_addr');
-        if (!$ip1 && !$ip2 && !$forward_ip) {
-            return false;
-        }
-        $request_ips = [];
-        if ($forward_ip) {
-            $request_ips[] = $forward_ip;
-        }
-        if ($ip1) {
-            $request_ips[] = $ip1;
-        }
-        if ($ip2) {
-            $request_ips[] = $ip2;
-        }
-        return implode(',', $request_ips);
     }
 }
