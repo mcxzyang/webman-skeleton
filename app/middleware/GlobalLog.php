@@ -21,7 +21,7 @@ class GlobalLog implements MiddlewareInterface
         $start = microtime(true);
         //获取请求信息
         $data = [
-            'ip'         => $this->getIp($request),
+            'ip'         => $request->getRealIp(),
             'uri'        => $request->uri(),
             'method'     => $request->method(),
             'appid'      => '', //TODO 业务数据，如果项目中可直接获取到appid，记录在此处

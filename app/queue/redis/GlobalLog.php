@@ -68,7 +68,7 @@ class GlobalLog implements Consumer
                 $table->text('user_agent')->nullable(true)->default(null)->comment('user_agent');
                 $table->text('query')->nullable(true)->default(null)->comment('请求参数');
                 $table->string('errcode', 10)->nullable(true)->default(null)->comment('响应错误码');
-                $table->text('response')->nullable(true)->default(null)->comment('响应结果');
+                $table->mediumText('response')->nullable(true)->default(null)->comment('响应结果');
                 $table->text('exception')->nullable(true)->default(null)->comment('异常信息');
                 $table->text('exec_time')->nullable(true)->default(null)->comment('执行时间，单位毫秒');
                 $table->text('cookie')->nullable(true)->default(null)->comment('请求cookie');
