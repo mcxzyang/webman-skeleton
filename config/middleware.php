@@ -12,4 +12,9 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-return [];
+return [
+    //全局中间件
+    '' => [
+        app\middleware\GlobalLog::class
+    ]
+];
