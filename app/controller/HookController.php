@@ -2,6 +2,7 @@
 
 namespace app\controller;
 
+use support\Log;
 use support\Request;
 
 class HookController
@@ -12,6 +13,7 @@ class HookController
         $body = $request->rawBody();
         $key = 'cherrybeal';
         $hashedData = hash_hmac('sha1', $body, $key);
+        Log::info($hashedData);
         if (hash_equals('sha1='.$hashedData, $codingSign)) {
 //            $target = '/var/www/skeleton/';
             $cmd = 'git pull';
