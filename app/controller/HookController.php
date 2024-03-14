@@ -25,7 +25,7 @@ class HookController
     public function test()
     {
         $cmd = 'git pull';
-        $result = shell_exec($cmd. ' >> /var/log/webhook_api.log');
+        $result = shell_exec($cmd. ' 2>&1');
         echo $result;
     }
 }
