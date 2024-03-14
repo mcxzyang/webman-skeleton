@@ -20,6 +20,6 @@ class OrderController
 
     public function json()
     {
-        return json(['code' => 0]);
+        return json(['code' => 1]);
     }
 }
