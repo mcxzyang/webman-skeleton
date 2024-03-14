@@ -14,7 +14,10 @@
 
 use app\Api\controller\IndexController;
 use app\Api\controller\OrderController;
+use app\controller\HookController;
 use Webman\Route;
+
+Route::post('/webhook', [HookController::class, 'coding']);
 
 Route::get('/test', [IndexController::class, 'index']);
 
