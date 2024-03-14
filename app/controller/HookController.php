@@ -24,7 +24,7 @@ class HookController
 
     public function test()
     {
-        $cmd = 'git pull';
+        $cmd = 'sudo -Hu www-data git pull';
         $result = exec($cmd. ' 2>&1');
         echo $result;
     }
