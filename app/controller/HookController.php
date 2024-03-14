@@ -15,7 +15,7 @@ class HookController
         $hashedData = hash_hmac('sha1', $body, $key);
         if (hash_equals('sha1='.$hashedData, $codingSign)) {
 //            $target = '/var/www/skeleton/';
-             $cmd = 'sudo -Hu www-data git pulll';
+             $cmd = 'sudo -Hu www-data git pull';
              $result = shell_exec($cmd. ' 2>&1');
              return $result;
 //            return shell_exec($cmd);
