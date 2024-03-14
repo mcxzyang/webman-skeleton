@@ -21,4 +21,11 @@ class HookController
 //            return shell_exec($cmd);
         }
     }
+
+    public function test()
+    {
+        $cmd = 'git pull';
+        $result = shell_exec($cmd. ' >> /var/log/webhook_api.log');
+        echo $result;
+    }
 }
