@@ -17,4 +17,9 @@ class OrderController
             ->paginate(10);
         return json($list);
     }
+
+    public function json()
+    {
+        return json(['code' => 0]);
+    }
 }

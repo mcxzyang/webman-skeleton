@@ -19,6 +19,7 @@ use Webman\Route;
 Route::get('/test', [IndexController::class, 'index']);
 
 Route::get('/order', [OrderController::class, 'index']);
+Route::get('/json', [OrderController::class, 'json']);
 
 
 Route::fallback(function(){

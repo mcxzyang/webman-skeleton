@@ -64,6 +64,10 @@ class Order extends Model
      */
     public $timestamps = false;
 
+    protected $casts = [
+        'address' => 'json'
+    ];
+
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
