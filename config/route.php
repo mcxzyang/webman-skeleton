@@ -17,8 +17,6 @@ use app\controller\HookController;
 use Webman\Route;
 
 Route::post('/webhook', [HookController::class, 'coding']);
-Route::get('/test', [HookController::class, 'test']);
-
 
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/json', [OrderController::class, 'json']);
