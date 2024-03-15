@@ -52,7 +52,8 @@
       "app\\View\\Components\\": "./app/view/components"
     },
     "files": [
-      "./support/helpers.php"
+      "./support/helpers.php",
+      "./extend/JWT/autoload.php"
     ]
   },
   "scripts": {
