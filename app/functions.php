@@ -57,8 +57,8 @@ function apiSuccess($data)
     return json(['code' => 200, 'msg' => 'ok','data' => (array) $data]);
 }
 
-function apiError(string $msg = '参数错误', int $code = 400)
+function apiError(string $msg = '参数错误', int $code = 400, $data = null)
 {
     return new Response($code, ['Content-Type' => 'application/json'], json_encode([
-        'code' => $code, 'msg' => $msg,'data' => null], JSON_UNESCAPED_UNICODE));
+        'code' => $code, 'msg' => $msg,'data' => $data], JSON_UNESCAPED_UNICODE));
 }

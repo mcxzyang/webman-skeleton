@@ -4,18 +4,6 @@ namespace app\model;
 
 use support\Model;
 
-/**
- * admin_users
- * @property integer $id (主键)
- * @property string $username
- * @property string $name
- * @property string $avatar
- * @property string $password
- * @property integer $is_super_admin
- * @property integer $status
- * @property mixed $created_at
- * @property mixed $updated_at
- */
 class AdminUser extends Model
 {
     /**

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d52d2431588949c491f15473b71d151",
+    "content-hash": "659be2858ef235256c52bffaaf6b9747",
     "packages": [
         {
             "name": "brick/math",
@@ -2870,6 +2870,51 @@
             "time": "2024-02-26T08:37:45+00:00"
         },
         {
+            "name": "tinywan/exception-handler",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-exception.git",
+                "reference": "8ab9b67924112324686f27178af4bce77025454d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-exception/zipball/8ab9b67924112324686f27178af4bce77025454d",
+                "reference": "8ab9b67924112324686f27178af4bce77025454d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.4",
+                "workerman/webman-framework": "^1.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "tinywan/jwt": "^1.2",
+                "tinywan/storage": "^0.2.2",
+                "tinywan/validate": "^1.0",
+                "webman/think-orm": "^1.1",
+                "workerman/webman": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\ExceptionHandler\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "webman exception handler plugin",
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-exception/issues",
+                "source": "https://github.com/Tinywan/webman-exception/tree/v1.4.1"
+            },
+            "time": "2024-03-06T10:06:02+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.6.0",
             "source": {
@@ -3079,6 +3124,36 @@
                 "wiki": "http://www.workerman.net/doc/webman"
             },
             "time": "2024-01-23T03:25:23+00:00"
+        },
+        {
+            "name": "webman/cors",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-php/cors.git",
+                "reference": "a5396634fd2ee4e7b15abba0bab45f28e1c1ad02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-php/cors/zipball/a5396634fd2ee4e7b15abba0bab45f28e1c1ad02",
+                "reference": "a5396634fd2ee4e7b15abba0bab45f28e1c1ad02",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webman\\Cors\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/webman-php/cors/issues",
+                "source": "https://github.com/webman-php/cors/tree/v1.0.1"
+            },
+            "time": "2022-11-05T11:16:20+00:00"
         },
         {
             "name": "webman/event",
@@ -3431,5 +3506,5 @@
         "php": ">=7.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

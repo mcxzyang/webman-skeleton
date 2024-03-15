@@ -22,11 +22,6 @@ class OrderController
         return json($list);
     }
 
-    public function json()
-    {
-        return json(['code' => 9]);
-    }
-
     public function login(Request $request)
     {
         $username = $request->input('username');
@@ -34,7 +29,6 @@ class OrderController
 
         $adminUser = AdminUser::query()->where('username', $username)->first();
         if (!$adminUser) {
-            Log::info('failed');
             return apiError('用户不存在');
         }
         if (!password_verify($password, $adminUser->password)) {

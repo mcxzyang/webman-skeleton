@@ -17,10 +17,18 @@ use app\controller\HookController;
 use app\middleware\CheckAuth;
 use Webman\Route;
 
+// 给所有OPTIONS请求设置跨域
+Route::options('[{path:.+}]', function (){
+    return response('');
+});
+
+// webhook
 Route::post('/webhook', [HookController::class, 'coding']);
 
+require_once base_path('/routes/api.php');
+
+
 Route::get('/order', [OrderController::class, 'index']);
-Route::get('/json', [OrderController::class, 'json']);
 
 Route::post('/login', [OrderController::class, 'login']);
 
@@ -29,5 +37,6 @@ Route::group('/user', function () {
 })->middleware(CheckAuth::class);
 
 Route::fallback(function () {
-    return json(['code' => 404, 'msg' => '404 not found']);
+    throw new \Tinywan\ExceptionHandler\Exception\RouteNotFoundException();
+//    return json(['code' => 404, 'msg' => '404 not found']);
 });
