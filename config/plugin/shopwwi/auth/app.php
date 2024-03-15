@@ -24,7 +24,7 @@ return [
         ]
     ],
     'jwt' => [
-        'prefix' => 'skeleton',
+        'prefix' => env('JWT_REDIS_PREFIX'),
         'redis' => true,
         // 算法类型 ES256、HS256、HS384、HS512、RS256、RS384、RS512
         'algorithms' => 'HS256',
