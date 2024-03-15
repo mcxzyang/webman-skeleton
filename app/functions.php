@@ -54,7 +54,7 @@ if (! function_exists('value')) {
 
 function apiSuccess($data)
 {
-    return json(['code' => 0, 'msg' => 'ok','data' => (array) $data]);
+    return json(['code' => 200, 'msg' => 'ok','data' => (array) $data]);
 }
 
 function apiError(string $msg = '参数错误', int $code = 400)
