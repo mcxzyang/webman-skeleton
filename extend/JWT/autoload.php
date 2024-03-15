@@ -6,7 +6,6 @@ spl_autoload_register(function ($class) {
     ];
 
     if (isset($map[$class])) {
-        var_export($class . ' loaded' . PHP_EOL);
         include $map[$class];
         return true;
     }
