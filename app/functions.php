@@ -1,4 +1,7 @@
 <?php
+
+use support\Response;
+
 /**
  * Here is your custom functions.
  */
@@ -49,29 +52,13 @@ if (! function_exists('value')) {
     }
 }
 
-function apiSuccess(array $data = [])
+function apiSuccess($data)
 {
-    $res = [
-        'code' => \app\enum\ErrorCode::SUCCESS,
-        'msg'  => 'ok',
-    ];
-    if ($data) {
-        $res['data'] = $data;
-    }
-    return $res;
+    return json(['code' => 0, 'msg' => 'ok','data' => (array) $data]);
 }
 
-function apiError(string $msg, int $code = 400, array $data = [], array $trace = [])
+function apiError(string $msg = '参数错误', int $code = 400)
 {
-    $res = [
-        'code' => $code,
-        'msg'  => $msg,
-    ];
-    if ($data) {
-        $res['data'] = $data;
-    }
-    if ($trace) {
-        $res['trace'] = $trace;
-    }
-    return $res;
+    return new Response($code, ['Content-Type' => 'application/json'], json_encode([
+        'code' => $code, 'msg' => $msg,'data' => null], JSON_UNESCAPED_UNICODE));
 }

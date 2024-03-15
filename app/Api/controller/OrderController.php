@@ -2,7 +2,11 @@
 
 namespace app\Api\controller;
 
+use app\model\AdminUser;
 use app\model\Order;
+use Shopwwi\WebmanAuth\Facade\Auth;
+use support\Log;
+use support\Request;
 
 class OrderController
 {
@@ -21,5 +25,28 @@ class OrderController
     public function json()
     {
         return json(['code' => 9]);
+    }
+
+    public function login(Request $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        $adminUser = AdminUser::query()->where('username', $username)->first();
+        if (!$adminUser) {
+            Log::info('failed');
+            return apiError('用户不存在');
+        }
+        if (!password_verify($password, $adminUser->password)) {
+            return apiError('用户密码错误');
+        }
+        $token = Auth::accessTime(60)->login($adminUser);
+        return apiSuccess($token);
+    }
+
+    public function user()
+    {
+        $user = Auth::user(true);
+        return apiSuccess($user);
     }
 }

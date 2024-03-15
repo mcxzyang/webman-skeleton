@@ -14,6 +14,7 @@
 
 use app\Api\controller\OrderController;
 use app\controller\HookController;
+use app\middleware\CheckAuth;
 use Webman\Route;
 
 Route::post('/webhook', [HookController::class, 'coding']);
@@ -21,8 +22,12 @@ Route::post('/webhook', [HookController::class, 'coding']);
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/json', [OrderController::class, 'json']);
 
+Route::post('/login', [OrderController::class, 'login']);
 
-Route::fallback(function(){
+Route::group('/user', function () {
+    Route::get('/me', [OrderController::class, 'user']);
+})->middleware(CheckAuth::class);
+
+Route::fallback(function () {
     return json(['code' => 404, 'msg' => '404 not found']);
 });
-

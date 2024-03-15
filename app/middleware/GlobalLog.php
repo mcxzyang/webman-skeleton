@@ -46,15 +46,11 @@ class GlobalLog implements MiddlewareInterface
             $trace = [$err->getMessage(), $err->getFile(), $err->getLine(), $err->getTraceAsString()];
             $data['exception'] = json_encode($trace, JSON_UNESCAPED_UNICODE);
             Log::error('server error', $trace);
-            if (env('APP_DEBUG')) {
-                $res = apiError(ErrorCode::SERVER_ERROR, '服务异常，请稍后重试', [], $trace);
-            } else {
-                $res = apiError(ErrorCode::SERVER_ERROR, '服务异常，请稍后重试');
-            }
+            $res = apiError(env('APP_DEBUG') ? json_encode($trace) : '服务异常，请稍后重试', ErrorCode::SERVER_ERROR);
         }
 
         $data['status_code'] = $response->getStatusCode();
-        $data['response'] = $res ? json_encode($res, JSON_UNESCAPED_UNICODE) : $response->rawBody();
+        $data['response'] = $response->rawBody();
         $end = microtime(true);
         $exec_time = round(($end - $start) * 1000, 2);
         $data['exec_time'] = $exec_time;
@@ -62,7 +58,7 @@ class GlobalLog implements MiddlewareInterface
         Redis::send('global-log', $data);
 
         if ($res) {
-            return json($res);
+            return $res;
         }
         return $response;
     }
