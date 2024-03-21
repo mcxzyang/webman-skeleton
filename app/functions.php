@@ -10,8 +10,10 @@ if (! function_exists('env')) {
     /**
      * Gets the value of an environment variable.
      *
-     * @param string $key
-     * @param null|mixed $default
+     * @param  string  $key
+     * @param  null|mixed  $default
+     *
+     * @return array|bool|mixed|string|null
      */
     function env(string $key, $default = null)
     {
